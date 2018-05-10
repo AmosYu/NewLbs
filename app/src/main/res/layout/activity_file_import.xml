@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.FileImportActivity">
+
+    <RadioGroup
+        android:id="@+id/select_time_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/toady_radio"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="一天内"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/three_day_radio"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="三天内"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/seven_day_radio"
+            android:layout_width="0dp"
+            android:text="七天内"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/one_month_radio"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="一月内"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/category_expandlv_itemone_bg_normal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/file_action_btn"
+                android:layout_width="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_height="40dp"
+                android:text="点我导出"
+                android:background="@drawable/btn_style"
+                android:textSize="@dimen/text_size_16" />
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_3" />
+
+
+
+
+
+    <ListView
+            android:id="@+id/file_log_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/grey_3"
+            android:background="@color/white"
+            android:dividerHeight="0.5dp"></ListView>
+
+    
+
+</LinearLayout>

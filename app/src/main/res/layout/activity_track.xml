@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ctl.newlbs.ui.TrackActivity">
+    <RadioGroup
+        android:id="@+id/track_select_time_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/track_toady_radio"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="一天内"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/track_three_day_radio"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="三天内"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/track_seven_day_radio"
+            android:layout_width="0dp"
+            android:text="七天内"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/track_one_month_radio"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="一月内"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_size_50"
+        android:background="@drawable/category_expandlv_itemone_bg_normal">
+
+        <Button
+            android:id="@+id/spinner_marker_type"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="基站类型:移动GSM"
+            android:background="@drawable/btn_style"></Button>
+
+        <Button
+            android:id="@+id/load_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_style"
+            android:text="点我加载轨迹" />
+    </LinearLayout>
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/track_mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" />
+
+
+
+
+
+</LinearLayout>
