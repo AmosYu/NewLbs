@@ -41,6 +41,7 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.ctl.newlbs.baidumap.LocationService;
+import com.ctl.newlbs.utils.Config;
 import com.ctl.newlbs.viewadapter.CellInfoAdapter;
 import com.ctl.newlbs.viewadapter.WifiInfoAdapter;
 import com.ctl.newlbs.viewadapter.InfoWindowHolder;
@@ -652,7 +653,7 @@ public class MainActivity extends Activity implements Observer,View.OnClickListe
                         final EditText devNumEd = new EditText(context);
                         devNumEd.setInputType(InputType.TYPE_CLASS_NUMBER);
                         devNumEd.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                        devNumEd.setHint("请输入设备序列号");
+                        devNumEd.setHint(Config.getDevId(context));
                         AlertDialog.Builder devNumEdBuilder = new AlertDialog.Builder(context);
                         devNumEdBuilder.setTitle("设置设备序列号（两位数）");
                         devNumEdBuilder.setView(devNumEd);
@@ -675,6 +676,7 @@ public class MainActivity extends Activity implements Observer,View.OnClickListe
                                 bluetoothConn.sendCmd("BC+SETSER=55AA-"+numberStr);
                                 Utils.delay(500);
                                 bluetoothConn.sendCmd("BC+SETLTE=1");
+                                Config.setDevId(context,numberStr);
                             }
                         }).show();
                         break;
@@ -731,6 +733,7 @@ public class MainActivity extends Activity implements Observer,View.OnClickListe
         });
         gpsView = (TextView)findViewById(R.id.main_top_gps);
         frequencyBtn = (Button)findViewById(R.id.frequency_btn);
+        frequencyBtn.setText(Config.getCollectionCycle(context)+"秒");
         frequencyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -751,6 +754,7 @@ public class MainActivity extends Activity implements Observer,View.OnClickListe
                 if(value.length()<2)
                     value = 0+value;
                 bluetoothConn.sendCmd("BC+SETDUR="+value);
+                Config.setCollectionCycle(context,value);
             }
         });
         listDialog.show();
@@ -783,7 +787,6 @@ public class MainActivity extends Activity implements Observer,View.OnClickListe
 //            R.drawable.dingdian,
 //
 //    };
-
 //    private String[] gridItemText = {"关于本机","系统设置","定点采集"};
     private String[] gridItemText = {"基站查询","数据导出","系统设置","定点采集","离线地图","轨迹查询"};
 

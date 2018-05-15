@@ -5,6 +5,7 @@ import android.util.Log;
 
 
 import com.ctl.newlbs.cell.ProcessBtsData;
+import com.ctl.newlbs.utils.Config;
 
 import java.io.IOException;
 
@@ -31,6 +32,7 @@ public class RevThread implements Runnable {
 
     public void run() {
         terminated = false;
+        blueConn.sendCmd("BC+SETDUR="+ Config.getCollectionCycle(context));
         while(!terminated){
             String revMsg;
             try {
