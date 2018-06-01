@@ -283,7 +283,7 @@ public class ProcessBtsData extends Observable{
 
     public String dirPath = Environment.getExternalStorageDirectory().getPath() + File.separator + "手动采集";
 
-    private boolean saveToDb = false;
+    private boolean saveToDb = true;
 
     public boolean isSaveToDb() {
         return saveToDb;
