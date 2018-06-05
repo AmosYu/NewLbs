@@ -213,26 +213,30 @@ public class DbAcessImpl implements DbAccess {
                 int sum=0;
 
 
-                Cursor cursor = dbRead.query(BACKUP_DATA,new String[]{TIME},TIME+">?",new String[]{time},null, null, null, null);
+//                Cursor cursor = dbRead.query(BACKUP_DATA,new String[]{TIME},TIME+">?",new String[]{time},null, null, null, null);
+
+                Cursor cursor = dbRead.rawQuery("select LAC,CI,SID,NID,BID,CELL_TYPE,latitude,longitude,arfcn,PCI,rssi,time,btsType from backupData where time>?",
+                        new String[]{ time});
+
 
                 if(cursor.getCount()>0)
                 {
                     sdCardOperate.writeMsgToFile( getFileHead(), "test");
                 }
                 while (cursor.moveToNext()) {
-                    String cellType = cursor.getString(cursor.getColumnIndex(CELL_TYPE));
-                    int lac = cursor.getInt(cursor.getColumnIndex(LAC));
-                    int ci = cursor.getInt(cursor.getColumnIndex(CI));
-                    int sid = cursor.getInt(cursor.getColumnIndex(SID));
-                    int nid = cursor.getInt(cursor.getColumnIndex(NID));
-                    int bid = cursor.getInt(cursor.getColumnIndex(BID));
-                    int arfcn = cursor.getInt(cursor.getColumnIndex(ARFCN));
-                    int pci = cursor.getInt(cursor.getColumnIndex(PCI));
-                    int rssi = cursor.getInt(cursor.getColumnIndex(RSSI));
-                    double latitute = cursor.getDouble(cursor.getColumnIndex(LATITUDE));
-                    double longitute = cursor.getDouble(cursor.getColumnIndex(LONGITUDE));
-                    String time = cursor.getString(cursor.getColumnIndex(TIME));
-                    String btsType = cursor.getString(cursor.getColumnIndex(BTS_TYPE));
+                    String cellType = cursor.getString(5);
+                    int lac = cursor.getInt(0);
+                    int ci = cursor.getInt(1);
+                    int sid = cursor.getInt(2);
+                    int nid = cursor.getInt(3);
+                    int bid = cursor.getInt(4);
+                    int arfcn = cursor.getInt(8);
+                    int pci = cursor.getInt(9);
+                    int rssi = cursor.getInt(10);
+                    double latitute = cursor.getDouble(6);
+                    double longitute = cursor.getDouble(7);
+                    String time = cursor.getString(11);
+                    String btsType = cursor.getString(12);
 
                     String fileMsg = btsType + "," + cellType + "," + lac + "," + ci + "," + sid + "," + nid + "," + bid + "," + latitute + "," + longitute + "," + arfcn + "," + pci + "," +
                                 rssi + "," + time + "\r\n";

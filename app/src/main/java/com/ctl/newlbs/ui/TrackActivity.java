@@ -1,5 +1,6 @@
 package com.ctl.newlbs.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -429,6 +430,7 @@ public class TrackActivity extends Activity {
 
 
 
+    @SuppressLint("WrongConstant")
     public static String getPastTime(String timeStr) {
 
         long time=System.currentTimeMillis();
@@ -437,15 +439,15 @@ public class TrackActivity extends Activity {
         Date date = new Date(time);
         calendar.setTime(date);
         if(timeStr.equals(times[0])){
-            calendar.add(Calendar.HOUR, -2);
-            return simpleDateFormat.format(calendar.getTime());
-        }
-        else if(timeStr.equals(times[1])){
             calendar.add(Calendar.HOUR, -24);
             return simpleDateFormat.format(calendar.getTime());
         }
-        else if(timeStr.equals(times[2])){
+        else if(timeStr.equals(times[1])){
             calendar.add(Calendar.HOUR, -24*3);
+            return simpleDateFormat.format(calendar.getTime());
+        }
+        else if(timeStr.equals(times[2])){
+            calendar.add(Calendar.HOUR, -24*7);
             return simpleDateFormat.format(calendar.getTime());
         }
         else if(timeStr.equals(times[3])){

@@ -22,7 +22,7 @@ public class Config {
 
     public static String getCollectionCycle(Context context){
         SharedPreferences sp = context.getSharedPreferences(CONFIG_FILENAME, Context.MODE_PRIVATE);
-        String secs = sp.getString(CONFIG_SECS_CYCLE, "3");
+        String secs = sp.getString(CONFIG_SECS_CYCLE, "03");
         return secs;
     }
 

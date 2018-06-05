@@ -53,31 +53,31 @@ public interface  DbAccess {
     ArrayList<String> FindPos(String mnc, String lac, String cellid);
 
 
-    public final String CELL_TYPE = "CELL_TYPE";
-    public final String LAC = "LAC";
-    public final String SID = "SID";
-    public final String NID = "NID";
-    public final String CI = "CI";
-    public final String BID = "BID";
-    public final String LATITUDE = "latitude";
-    public final String LONGITUDE = "longitude";
-    public final String RSSI = "rssi";
-    public final String ARFCN = "arfcn";
-    public final String PCI = "PCI";
+    public final static String CELL_TYPE = "CELL_TYPE";
+    public final static String LAC = "LAC";
+    public final static String SID = "SID";
+    public final static String NID = "NID";
+    public final static String CI = "CI";
+    public final static String BID = "BID";
+    public final static String LATITUDE = "latitude";
+    public final static String LONGITUDE = "longitude";
+    public final static String RSSI = "rssi";
+    public final static String ARFCN = "arfcn";
+    public final static String PCI = "PCI";
 
-    public final String TIME = "time";
-    public final String MARK = "mark";
-    public final String BTS_TYPE = "btsType";
-    public final String BACKUP_DATA="backupData";
-    public final String USER_MARK="userMark";
+    public final static String TIME = "time";
+    public final static String MARK = "mark";
+    public final static String BTS_TYPE = "btsType";
+    public final static String BACKUP_DATA="backupData";
+    public final static String USER_MARK="userMark";
 
-    public final String WIFI_DATA = "wifiData";
+    public final static String WIFI_DATA = "wifiData";
 
-    public final String TYPE = "TYPE";
-    public final String MAC  = "MAC";
+    public final static String TYPE = "TYPE";
+    public final static String MAC  = "MAC";
 
-    public final String BAIDULATITUDE = "baiduLatitude";
-    public final String BAIDULONGITUDE = "baiduLongitude";
+    public final static String BAIDULATITUDE = "baiduLatitude";
+    public final static String BAIDULONGITUDE = "baiduLongitude";
 
 
 }

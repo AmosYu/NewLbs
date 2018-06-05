@@ -160,7 +160,7 @@ public class ProcessBtsData extends Observable{
                     if(gpsEffective){
 
                         LatLng latLng = Gps2BaiDu.gpsToBaidu(latitude,longitude);
-                        if(DistanceUtil.getDistance(latLng,lastPoint)>10){
+                        if(DistanceUtil.getDistance(latLng,lastPoint)>20){
                             dbAcess.insertWifiInfo(wifiInfo);
                         }
                     }
@@ -187,18 +187,23 @@ public class ProcessBtsData extends Observable{
                         latitude = lat.setScale(6, BigDecimal.ROUND_HALF_UP).doubleValue();
                         BigDecimal lng = new BigDecimal(lngDu + lngFen);
                         longitude = lng.setScale(6, BigDecimal.ROUND_HALF_UP).doubleValue();
+                        LatLng latLng = Gps2BaiDu.gpsToBaidu(latitude,longitude);
+
+                        if(DistanceUtil.getDistance(latLng,lastPoint)>20){
+                            lastPoint = latLng;
+                        }
                     }
                 }
                 else{
                     gpsEffective = false;
                     latitude = 0;
                     longitude = 0;
-                    if(MainActivity.baiduLatitude!=0&&MainActivity.baiduLongitude!=0){
-                        LatLng latLng =Gps2BaiDu.baiduToGps(MainActivity.baiduLatitude,MainActivity.baiduLongitude);
-                        latitude = latLng.latitude;
-                        longitude = latLng.longitude;
+//                    if(MainActivity.baiduLatitude!=0&&MainActivity.baiduLongitude!=0){
+//                        LatLng latLng =Gps2BaiDu.baiduToGps(MainActivity.baiduLatitude,MainActivity.baiduLongitude);
+//                        latitude = latLng.latitude;
+//                        longitude = latLng.longitude;
 //                        gpsEffective = true;
-                    }
+//                    }
                 }
                 setChanged();
                 notifyObservers(gpsEffective);
@@ -266,7 +271,7 @@ public class ProcessBtsData extends Observable{
                     lbsCellInfo.setLatitudeGps(latitude);
                     lbsCellInfo.setMark(mark);
                     LatLng latLng = Gps2BaiDu.gpsToBaidu(latitude,longitude);
-                    if(DistanceUtil.getDistance(latLng,lastPoint)>20){
+                    if(DistanceUtil.getDistance(latLng,lastPoint)>20||lastPoint==null){
                         dbAcess.insertCellMapInfo(lbsCellInfo);
                     }
                 }
