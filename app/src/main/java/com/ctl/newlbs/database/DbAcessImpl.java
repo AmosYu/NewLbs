@@ -221,7 +221,7 @@ public class DbAcessImpl implements DbAccess {
 
                 if(cursor.getCount()>0)
                 {
-                    sdCardOperate.writeMsgToFile( getFileHead(), "test");
+                    sdCardOperate.writeMsgToFile( getFileHead(), filename);
                 }
                 while (cursor.moveToNext()) {
                     String cellType = cursor.getString(5);
@@ -240,7 +240,7 @@ public class DbAcessImpl implements DbAccess {
 
                     String fileMsg = btsType + "," + cellType + "," + lac + "," + ci + "," + sid + "," + nid + "," + bid + "," + latitute + "," + longitute + "," + arfcn + "," + pci + "," +
                                 rssi + "," + time + "\r\n";
-                    sdCardOperate.writeMsgToFile(fileMsg, "test");
+                    sdCardOperate.writeMsgToFile(fileMsg, filename);
 //                Log.i(TAG, "导出的数据：----" +fileMsg);
                         sum++;
                     if (handler != null) {
@@ -255,7 +255,7 @@ public class DbAcessImpl implements DbAccess {
 //        if(isdelete) deleteUserdata(markList);
                 Message msg = new Message();
                 msg.arg2 = 1000;
-                msg.arg1 = 1001;
+                msg.arg1 = 1009;
                 msg.obj = "导出完成,文件名称："+filename+"位于本机存储空间的基站数据文件夹内。";
                 handler.sendMessage(msg);
 

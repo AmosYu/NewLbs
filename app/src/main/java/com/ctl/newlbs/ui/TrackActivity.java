@@ -109,22 +109,22 @@ public class TrackActivity extends Activity {
         timeSelectGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                if(id==R.id.toady_radio){
+                if(id==R.id.track_toady_radio){
                     timeEnd = getPastTime("一天内");
                 }
-                else if(id==R.id.three_day_radio){
+                else if(id==R.id.track_three_day_radio){
                     timeEnd = getPastTime("三天内");
                 }
-                else if(id==R.id.seven_day_radio){
+                else if(id==R.id.track_seven_day_radio){
                     timeEnd = getPastTime("七天内");
                 }
-                else if(id==R.id.one_month_radio){
+                else if(id==R.id.track_one_month_radio){
                     timeEnd = getPastTime("一月内");
                 }
             }
         });
 
-        initBts(showBtsType,timeEnd);
+//        initBts(showBtsType,timeEnd);
 //        timeSelect.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -162,7 +162,7 @@ public class TrackActivity extends Activity {
         });
         listDialog.show();
     }
-    public final static String[] times = {"一天内","三天内","一周内","一月内"};
+    public final static String[] times = {"一天内","三天内","七天内","一月内"};
     private void showTimeSelectDialog() {
         final AlertDialog.Builder listDialog = new AlertDialog.Builder(TrackActivity.this);
         listDialog.setTitle("选择时间段");
@@ -453,17 +453,6 @@ public class TrackActivity extends Activity {
         else if(timeStr.equals(times[3])){
             calendar.add(Calendar.HOUR, -24*7);
             return simpleDateFormat.format(calendar.getTime());
-        }
-        else if(timeStr.equals(times[4])){
-            calendar.add(Calendar.MONTH, -1);
-            return simpleDateFormat.format(calendar.getTime());
-        }
-        else if(timeStr.equals(times[5])){
-            calendar.add(Calendar.MONTH, -3);
-            return simpleDateFormat.format(calendar.getTime());
-        }
-        else if(timeStr.equals(times[6])){
-            return "0";
         }
         return null;
     }
