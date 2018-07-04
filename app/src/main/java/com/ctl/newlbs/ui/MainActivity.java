@@ -192,6 +192,7 @@ public class MainActivity extends Activity implements Observer,View.OnClickListe
                         logoView.setBackgroundResource(R.drawable.logo_grey);
                         saveDataBtn.setEnabled(false);
                         saveDataBtn.setTextColor(Color.WHITE);
+                        gpsView.setBackgroundResource(R.drawable.gps_grey);
                     }
                 }
             });

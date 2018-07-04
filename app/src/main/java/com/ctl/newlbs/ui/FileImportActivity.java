@@ -89,6 +89,7 @@ public class FileImportActivity extends Activity {
         logAdapter = new SimpleAdapter(this,logList,R.layout.file_log_item,
                 new String[]{DIR_NAME},new int[]{R.id.file_log_list});
         logListView.setAdapter(logAdapter);
+        initRadioGroup();
 
     }
 
@@ -139,6 +140,9 @@ public class FileImportActivity extends Activity {
             logList.add(0,map);
             if(logList.size()>30) logList.remove(logList.size()-1);
             logAdapter.notifyDataSetChanged();
+            if(msg.arg1==1009){
+                actionBtn.setEnabled(true);
+            }
 //            if(msg.arg2 == 1000&&msg.arg1==1001){
 //                actionBtn.setEnabled(true);
 //                fileNameAdapter.notifyDataSetChanged();

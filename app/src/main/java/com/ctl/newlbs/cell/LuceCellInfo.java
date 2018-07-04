@@ -250,7 +250,7 @@ public class LuceCellInfo implements Serializable{
     }
 
     public static String getYMD(){
-        SimpleDateFormat formatter   =   new SimpleDateFormat("yyyy年MM月dd日");
+        SimpleDateFormat formatter   =   new SimpleDateFormat("yyyy年MM月dd日HH时mm分sss秒");
         Date curDate   =   new Date(System.currentTimeMillis());//获取当前时间
         String timeStr   =   formatter.format(curDate);
         return timeStr;
