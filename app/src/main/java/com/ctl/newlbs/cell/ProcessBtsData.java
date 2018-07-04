@@ -390,7 +390,6 @@ public class ProcessBtsData extends Observable{
 
         }
         else if(revCmd.equals("+TRIGES=OK")){
-
             setChanged();
             notifyObservers(1000);
 
@@ -402,9 +401,6 @@ public class ProcessBtsData extends Observable{
 
                 }
             }.start();
-
         }
-
     }
-
 }
