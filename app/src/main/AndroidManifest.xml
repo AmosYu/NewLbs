@@ -31,6 +31,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,8 +51,7 @@
 
         <activity
             android:name=".ui.OffLineActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.TrackActivity"
             android:screenOrientation="portrait"
@@ -68,10 +68,12 @@
             android:name=".ui.SettingActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name=".ui.LoginActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
-
+        <activity
+            android:name=".ui.LoginActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+        <activity android:name=".ui.UploadActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            ></activity>
     </application>
 
 </manifest>
